@@ -85,6 +85,28 @@ Thus the statement `Double.NaN != Double.NaN` is true since it is the same as `!
 <br>
 <b>Now if the if statement was not true</b>, we would execute `a++;` and since we used that in the local inner class; this would mean we used a variable that is not effectively final in the local inner class and thus a compile error would be thrown. <br>
 But since this statement is now unreachable the compiler still considers `a` as effectively final. Now because the if statement is true, `i` is increment by 012. Which is 12 in octal converted to decimal which is $1*8^1+2*8^0=10$.
+<br><br>
+If you want to know what the java code is actually compiled to in java bytecode (even the compiler can't fix my typo :( ):
+```java
+public class FunQuiz {
+    public static void main(String[] args) {
+    final int a = 100;
+    int i = 0;
+    if (i == 0) {
+        i += 10;
+    }
+
+    class AwersomeClass {
+        int run(int num) {
+            return a + num;
+        }
+    }
+
+    AwersomeClass awesomeClass = new AwersomeClass();
+    System.out.println(awesomeClass.run(i));
+    }
+}
+```
 
 # Lines 17-18
 ```java
