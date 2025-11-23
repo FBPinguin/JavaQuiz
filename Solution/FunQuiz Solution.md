@@ -17,8 +17,8 @@ public class FunQuiz {
             if (i == 0)
                 if (Double.NaN != Double.NaN)
                     i += 012;
-                else
-                    a++;
+            else
+                a++;
         } while (false);
 
         var awesomeClass = new AwersomeClass();
